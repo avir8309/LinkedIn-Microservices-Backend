@@ -25,4 +25,10 @@ public class PostsService {
         post = postRepository.save(post);
         return modelMapper.map(post, PostDTO.class);
     }
+
+    public PostDTO getPost(Long postId) {
+        Post post = postRepository.findById(postId).orElse(null);
+        return modelMapper.map(post, PostDTO.class);
+
+    }
 }
