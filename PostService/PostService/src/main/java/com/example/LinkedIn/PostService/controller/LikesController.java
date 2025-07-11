@@ -13,7 +13,7 @@ public class LikesController {
     private final LikeService likeService;
 
     @PostMapping("/{postId}")
-    public ResponseEntity<Void> likePost(@PathVariable("postId") Long postId) {
+    public ResponseEntity<Void> likePost(@PathVariable("postId") Long postId, @RequestHeader("X-User-Id") String userId) {
         likeService.likePost(postId, 1L);
         return ResponseEntity.ok().build();
 

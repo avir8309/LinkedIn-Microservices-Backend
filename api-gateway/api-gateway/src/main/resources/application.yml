@@ -19,6 +19,7 @@ spring:
             - Path=/api/v1/users/**
           filters:
             - StripPrefix=2
+            - name = AuthenticationFilter
 
 eureka:
   client:
