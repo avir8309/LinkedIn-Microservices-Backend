@@ -1,6 +1,6 @@
 package com.example.LinkedIn.PostService.auth;
 
-public class userContextHolder {
+public class UserContextHolder {
 
     private static final ThreadLocal<Long> userContext = new ThreadLocal<>();
 
