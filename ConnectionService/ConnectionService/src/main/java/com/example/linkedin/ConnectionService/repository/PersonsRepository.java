@@ -10,9 +10,15 @@ import java.util.Optional;
 public interface PersonsRepository extends Neo4jRepository<Person, Long> {
     Optional<Person> getByName(String name);
 
-    @Query("MATCH (personA:Person)-[:CONNECTED_TO]-(personB:Person) " +
+    @Query( "MATCH (personA:Person)-[:CONNECTED_TO]-(personB:Person) " +
             "WHERE personA.userId = $userId " +
             "RETURN personB")
     List<Person> findAllFirstDegreeConnections( Long userId );
+
+    //write query when you know neo4j lol
+    boolean connectionRequestExists( Long senderId, Long receiverId );
+
+    //write query when you know neo4j lol
+    boolean alreadyConnected( Long senderId, Long receiverId );
 
 }
